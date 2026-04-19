@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sebastian Valdemarsson — Fullstack Developer</title>
+    <meta name="description"
+        content="CV och portfölj för Sebastian Valdemarsson, fullstackutvecklare under utbildning på Medieinstitutet. Starkt fokus på kreativ frontend och användarupplevelse." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/global.css" />
+</head>
+
+<body>
+
+    <!-- ══════════════════════════════════════════════════════════
+       HERO / MASTHEAD
+  ══════════════════════════════════════════════════════════ -->
+    <header id="hero">
+        <div class="container">
+            <div class="hero-inner">
+
+                <div class="hero-text">
+                    <p class="hero-eyebrow">CV &amp; Portfölj 2026</p>
+
+                    <h1 class="hero-name">
+                        Sebastian<span>Valdemarsson</span>
+                    </h1>
+
+                    <p class="hero-role">
+                        Fullstackutvecklare under utbildning på Medieinstitutet.<br>
+                        Kreativ frontend, robust backend, tydligt användarfokus.
+                    </p>
+
+                    <nav class="hero-contact" aria-label="Kontaktlänkar">
+                        <a href="tel:+46730426260" id="contact-phone">0730 42 62 60</a>
+                        <a href="mailto:valdemarsson.sebastian@gmail.com"
+                            id="contact-email">valdemarsson.sebastian@gmail.com</a>
+                        <a href="https://github.com/csschef" target="_blank" rel="noopener"
+                            id="contact-github">GitHub</a>
+                        <a href="https://www.linkedin.com/in/sebastianvaldemarsson" target="_blank" rel="noopener"
+                            id="contact-linkedin">LinkedIn</a>
+                    </nav>
+                </div>
+
+                <div class="hero-photo">
+                    <img src="assets/img/profile-picture.png" alt="Porträttfoto av Sebastian Valdemarsson" />
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- ── Animated ticker strip ───────────────────────────────── -->
+    <div class="ticker-strip" aria-hidden="true">
+        <div class="ticker-inner">
+            <span><img src="https://cdn.simpleicons.org/typescript/1A1A1A" width="14" height="14"
+                    alt="">TypeScript</span>
+            <span><img src="https://cdn.simpleicons.org/javascript/1A1A1A" width="14" height="14"
+                    alt="">JavaScript</span>
+            <span><img src="https://cdn.simpleicons.org/nodedotjs/1A1A1A" width="14" height="14" alt="">Node.js</span>
+            <span><img src="https://cdn.simpleicons.org/postgresql/1A1A1A" width="14" height="14"
+                    alt="">PostgreSQL</span>
+            <span><img src="https://cdn.simpleicons.org/react/1A1A1A" width="14" height="14" alt="">React</span>
+            <span><img src="https://cdn.simpleicons.org/vite/1A1A1A" width="14" height="14" alt="">Vite</span>
+            <span><img src="https://cdn.simpleicons.org/mongodb/1A1A1A" width="14" height="14" alt="">MongoDB</span>
+            <span><img src="https://cdn.simpleicons.org/git/1A1A1A" width="14" height="14" alt="">Git</span>
+            <span><img src="https://cdn.simpleicons.org/html5/1A1A1A" width="14" height="14" alt="">HTML &amp;
+                CSS</span>
+            <span><img src="https://cdn.simpleicons.org/express/1A1A1A" width="14" height="14" alt="">Express</span>
+            <span><img src="https://cdn.simpleicons.org/github/1A1A1A" width="14" height="14" alt="">GitHub</span>
+            <!-- duplicate for seamless loop -->
+            <span><img src="https://cdn.simpleicons.org/typescript/1A1A1A" width="14" height="14"
+                    alt="">TypeScript</span>
+            <span><img src="https://cdn.simpleicons.org/javascript/1A1A1A" width="14" height="14"
+                    alt="">JavaScript</span>
+            <span><img src="https://cdn.simpleicons.org/nodedotjs/1A1A1A" width="14" height="14" alt="">Node.js</span>
+            <span><img src="https://cdn.simpleicons.org/postgresql/1A1A1A" width="14" height="14"
+                    alt="">PostgreSQL</span>
+            <span><img src="https://cdn.simpleicons.org/react/1A1A1A" width="14" height="14" alt="">React</span>
+            <span><img src="https://cdn.simpleicons.org/vite/1A1A1A" width="14" height="14" alt="">Vite</span>
+            <span><img src="https://cdn.simpleicons.org/mongodb/1A1A1A" width="14" height="14" alt="">MongoDB</span>
+            <span><img src="https://cdn.simpleicons.org/git/1A1A1A" width="14" height="14" alt="">Git</span>
+            <span><img src="https://cdn.simpleicons.org/html5/1A1A1A" width="14" height="14" alt="">HTML &amp;
+                CSS</span>
+            <span><img src="https://cdn.simpleicons.org/express/1A1A1A" width="14" height="14" alt="">Express</span>
+            <span><img src="https://cdn.simpleicons.org/github/1A1A1A" width="14" height="14" alt="">GitHub</span>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════════════════════════ -->
+    <main id="main">
+        <div class="container">
+            <div class="main-grid">
+
+                <!-- ── Left column ───────────────────────────────────── -->
+                <div class="main-left">
+
+                    <!-- PROFIL -->
+                    <section id="profil" aria-labelledby="profil-heading">
+                        <h2 class="section-heading" id="profil-heading">Profil</h2>
+                        <p class="profil-text">
+                            Jag är en fullstackutvecklare under utbildning på Medieinstitutet
+                            med starkt fokus på <strong>kreativ frontend</strong>,
+                            användarupplevelse och tydlig teknisk struktur. Jag gillar att
+                            bygga produkter som känns genomarbetade visuellt och fungerar
+                            stabilt i vardagen. På GitHub driver jag flera projekt från idé
+                            till leverans — dashboard-lösningar, fullstack-appar och verktyg
+                            med tydligt användarfokus.
+                        </p>
+                    </section>
+
+                    <!-- PROJEKT -->
+                    <section id="projekt" aria-labelledby="projekt-heading">
+                        <h2 class="section-heading" id="projekt-heading">Projekt</h2>
+
+                        <ul class="project-list">
+
+                            <li class="project-card">
+                                <div class="project-header">
+                                    <span class="project-title">HASP — Home Assistant Simplified Panel</span>
+                                    <a class="project-url" href="https://github.com/csschef/hasp" target="_blank"
+                                        rel="noopener" id="proj-hasp-link">github.com/csschef/hasp</a>
+                                </div>
+                                <p class="project-stack">TypeScript · Vite · Web Components · WebSocket API</p>
+                                <p class="project-body">Mobilfokuserat, högpresterande dashboard-projekt med
+                                    skräddarsydda UI-komponenter, realtidsuppdateringar och tydligt fokus på snabb
+                                    respons och premiumkänsla.</p>
+                            </li>
+
+                            <li class="project-card">
+                                <div class="project-header">
+                                    <span class="project-title">OleaDB</span>
+                                    <a class="project-url" href="https://github.com/csschef/oleadb" target="_blank"
+                                        rel="noopener" id="proj-oleadb-link">github.com/csschef/oleadb</a>
+                                </div>
+                                <p class="project-stack">Node.js · Express · PostgreSQL · Vanilla JS · PM2</p>
+                                <p class="project-body">Fullstack-system för recepthantering som körs självhostat 24/7.
+                                    Projektet visar backendstruktur, databasdesign och driftstänk i praktiken.</p>
+                            </li>
+
+                            <li class="project-card">
+                                <div class="project-header">
+                                    <span class="project-title">Mj's Phone</span>
+                                    <a class="project-url" href="https://github.com/csschef/mjs-phone" target="_blank"
+                                        rel="noopener" id="proj-mjs-link">github.com/csschef/mjs-phone</a>
+                                </div>
+                                <p class="project-stack">JavaScript · DOM-hantering · LocalStorage</p>
+                                <p class="project-body">Betygsgrundande inlämning i JavaScript — en kontaktlista med
+                                    skapa-, redigera- och radera-flöden. Fokus på UI-tillstånd och persistens i
+                                    LocalStorage.</p>
+                            </li>
+
+                            <li class="project-card">
+                                <div class="project-header">
+                                    <span class="project-title">GameBoxBar</span>
+                                    <a class="project-url" href="https://gameboxbar.se" target="_blank" rel="noopener"
+                                        id="proj-gameboxbar-link">gameboxbar.se</a>
+                                </div>
+                                <p class="project-stack">Frontend · UI-design · Varumärkeskänsla</p>
+                                <p class="project-body">Modern konceptsite med responsiv layout, tydlig visuell
+                                    identitet och interaktiva komponenter byggd med kreativ riktning i fokus.</p>
+                            </li>
+
+                            <li class="project-card">
+                                <div class="project-header">
+                                    <span class="project-title">PizzaKalkylator</span>
+                                    <a class="project-url" href="https://pizzakalkylator.se" target="_blank"
+                                        rel="noopener" id="proj-pizza-link">pizzakalkylator.se</a>
+                                </div>
+                                <p class="project-stack">JavaScript · UX · Beräkningslogik</p>
+                                <p class="project-body">Nischat verktyg med tydlig produktidé, dynamiska beräkningar och
+                                    en enkel användarupplevelse för snabba, korrekta resultat.</p>
+                            </li>
+
+                        </ul>
+                    </section>
+
+                </div><!-- /main-left -->
+
+                <!-- ── Sidebar (right column) ─────────────────────────── -->
+                <aside class="sidebar" aria-label="Kompetenser och utbildning">
+
+                    <!-- TEKNIK -->
+                    <div class="sidebar-block">
+                        <h2 class="section-heading">Teknik</h2>
+
+                        <div class="skill-group">
+                            <p class="skill-cat">Frontend</p>
+                            <p class="skill-items">TypeScript, JavaScript, HTML, CSS</p>
+                        </div>
+                        <div class="skill-group">
+                            <p class="skill-cat">Backend</p>
+                            <p class="skill-items">Node.js, Express, REST API</p>
+                        </div>
+                        <div class="skill-group">
+                            <p class="skill-cat">Databas</p>
+                            <p class="skill-items">PostgreSQL, MongoDB</p>
+                        </div>
+                        <div class="skill-group">
+                            <p class="skill-cat">Verktyg</p>
+                            <p class="skill-items">Git, GitHub, Vite, PM2</p>
+                        </div>
+                        <div class="skill-group">
+                            <p class="skill-cat">Övrigt</p>
+                            <p class="skill-items">Home Assistant, automation</p>
+                        </div>
+                    </div>
+
+                    <!-- UTBILDNING -->
+                    <div class="sidebar-block">
+                        <h2 class="section-heading">Utbildning</h2>
+
+                        <p class="edu-title">Fullstack Developer</p>
+                        <p class="edu-sub">Medieinstitutet · 2024–2026 (pågående)</p>
+                        <p class="edu-desc">JavaScript, HTML/CSS, databasteknik, API-integrationer, DevOps/testning och
+                            LIA-perioder.</p>
+                    </div>
+
+                    <!-- STYRKOR -->
+                    <div class="sidebar-block">
+                        <h2 class="section-heading">Styrkor</h2>
+
+                        <ul class="strength-list">
+                            <li class="strength-item">Stark känsla för UX och detaljer</li>
+                            <li class="strength-item">Tar idé till fungerande produkt snabbt</li>
+                            <li class="strength-item">Bygger robusta lösningar med tydlig struktur</li>
+                            <li class="strength-item">Nyfiken, självgående och samarbetsvillig</li>
+                        </ul>
+                    </div>
+
+                </aside>
+
+            </div><!-- /main-grid -->
+        </div><!-- /container -->
+    </main>
+
+    <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════════ -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <p class="footer-name">Sebastian <span>Valdemarsson</span></p>
+                <nav class="footer-links" aria-label="Footer-kontaktlänkar">
+                    <a href="tel:+46730426260">0730 42 62 60</a>
+                    <a href="mailto:valdemarsson.sebastian@gmail.com">valdemarsson.sebastian@gmail.com</a>
+                    <a href="https://github.com/csschef" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://www.linkedin.com/in/sebastianvaldemarsson" target="_blank"
+                        rel="noopener">LinkedIn</a>
+                </nav>
+                <p class="footer-copy">
+                    Fler projekt och commit-aktivitet på
+                    <a href="https://github.com/csschef" target="_blank" rel="noopener"
+                        style="color:var(--accent)">github.com/csschef</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/ticker.js"></script>
+</body>
+
+</html>
