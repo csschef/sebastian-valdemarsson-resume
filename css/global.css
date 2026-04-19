@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
 
-/* ── Reset & base ─────────────────────────────────────────────── */
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
 *,
 *::before,
 *::after {
@@ -11,25 +13,15 @@
 
 :root {
     --bg: #F5F0E8;
-    /* warm off-white, newsprint */
     --bg-card: #FDFAF4;
-    /* slightly lighter for cards */
     --text: #1A1A1A;
-    /* near-black editorial text */
     --text-muted: #6B6B6B;
-    /* secondary text */
     --text-sub: #999;
-    /* subtle labels */
     --accent: #E8C547;
-    /* yellow accent */
     --accent-dk: #C9A91E;
-    /* darker yellow for hover */
     --rule: #D4CFC5;
-    /* divider lines */
     --panel: #1A1A1A;
-    /* dark sections */
     --panel-text: #F5F0E8;
-
     --font: 'Inter', system-ui, sans-serif;
     --max-w: 960px;
     --transition: 200ms ease;
@@ -61,14 +53,18 @@ ul {
     list-style: none;
 }
 
-/* ── Layout wrapper ───────────────────────────────────────────── */
+/* ============================================================
+   LAYOUT WRAPPER
+   ============================================================ */
 .container {
     max-width: var(--max-w);
     margin: 0 auto;
     padding: 0 24px;
 }
 
-/* ── Typography helpers ───────────────────────────────────────── */
+/* ============================================================
+   TYPOGRAPHY HELPERS
+   ============================================================ */
 .label {
     font-size: 10px;
     font-weight: 600;
@@ -77,7 +73,6 @@ ul {
     color: var(--text-sub);
 }
 
-/* ── Yellow accent rule (used throughout) ─────────────────────── */
 .accent-rule {
     display: block;
     width: 48px;
@@ -86,24 +81,51 @@ ul {
     margin-bottom: 20px;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   HERO / MASTHEAD
-═══════════════════════════════════════════════════════════════ */
+.section-heading {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-sub);
+    border-top: 2px solid var(--text);
+    padding-top: 10px;
+    margin-bottom: 28px;
+}
+
+/* ============================================================
+   HERO
+   Mobile:  text ovanfor, foto nedanfor (fore tickern)
+   Desktop: text vanster | foto hoger  (grid template areas)
+   ============================================================ */
 #hero {
     background: var(--panel);
     color: var(--panel-text);
-    padding: 64px 0 0;
+    padding-top: 40px;
 }
 
+/* Mobile: en kolumn, text ovan, foto under */
 .hero-inner {
     display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: end;
-    gap: 40px;
+    grid-template-areas:
+        'text'
+        'photo';
 }
 
 .hero-text {
-    padding-bottom: 48px;
+    grid-area: text;
+    padding-bottom: 32px;
+}
+
+.hero-photo {
+    grid-area: photo;
+}
+
+/* Visa hela bilden i ratta proportioner, ingen beskaring */
+.hero-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: grayscale(15%);
 }
 
 .hero-eyebrow {
@@ -116,14 +138,12 @@ ul {
 }
 
 .hero-name {
-    font-size: clamp(56px, 9vw, 96px);
+    font-size: clamp(40px, 12vw, 64px);
     font-weight: 900;
     line-height: 0.95;
     letter-spacing: -0.03em;
     color: var(--panel-text);
-    margin-bottom: 24px;
-    position: relative;
-    z-index: 2;
+    margin-bottom: 20px;
 }
 
 .hero-name span {
@@ -132,15 +152,13 @@ ul {
 }
 
 .hero-role {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
     color: #888;
-    margin-bottom: 32px;
-    max-width: 400px;
+    margin-bottom: 28px;
     line-height: 1.5;
 }
 
-/* Contact bar */
 .hero-contact {
     display: flex;
     flex-wrap: wrap;
@@ -150,43 +168,33 @@ ul {
 }
 
 .hero-contact a {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
     color: #aaa;
     transition: color var(--transition);
-    padding-right: 20px;
+    padding-right: 16px;
     position: relative;
 }
 
 .hero-contact a:not(:last-child)::after {
-    content: '·';
+    content: '';
     position: absolute;
-    right: 8px;
-    color: #555;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #555;
 }
 
 .hero-contact a:hover {
     color: var(--accent);
 }
 
-/* Profile photo */
-.hero-photo {
-    width: 500px;
-    align-self: end;
-}
-
-.hero-photo img {
-    display: block;
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    object-position: center top;
-    filter: grayscale(15%);
-    margin-left: -120px;
-    margin-bottom: 40px
-}
-
-/* ── Ticker strip ─────────────────────────────────────────────── */
+/* ============================================================
+   TICKER / NEWS BAND
+   ============================================================ */
 .ticker-strip {
     background: var(--accent);
     padding: 10px 0;
@@ -196,102 +204,78 @@ ul {
 
 .ticker-inner {
     display: inline-flex;
+    align-items: center;
+    gap: 40px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     will-change: transform;
 }
 
 .ticker-inner span {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--panel);
-    padding: 0 28px;
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    white-space: nowrap;
 }
 
-.ticker-inner img {
-    width: 14px;
-    height: 14px;
-    flex-shrink: 0;
-    display: block;
-}
-
-
-
-/* ═══════════════════════════════════════════════════════════════
-   MAIN CONTENT GRID
-═══════════════════════════════════════════════════════════════ */
+/* ============================================================
+   MAIN CONTENT -- mobile base (single column)
+   ============================================================ */
 #main {
-    padding: 64px 0;
+    padding: 40px 0;
 }
 
 .main-grid {
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 0 56px;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
 }
 
-/* ── Section heading ──────────────────────────────────────────── */
-.section-heading {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--text-sub);
-    border-top: 2px solid var(--text);
-    padding-top: 10px;
-    margin-bottom: 28px;
-}
-
-/* ═══════════════════════════════════════════════════════════════
+/* ============================================================
    PROFIL
-═══════════════════════════════════════════════════════════════ */
+   ============================================================ */
 #profil {
-    margin-bottom: 56px;
+    margin-bottom: 0;
 }
 
 .profil-text {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
     line-height: 1.65;
     color: var(--text);
-    max-width: 580px;
 }
 
 .profil-text strong {
     font-weight: 700;
 }
 
-/* ═══════════════════════════════════════════════════════════════
+/* ============================================================
    PROJEKT
-═══════════════════════════════════════════════════════════════ */
+   ============================================================ */
 #projekt {
-    margin-bottom: 56px;
+    margin-bottom: 0;
 }
 
 .project-list {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 12px;
 }
 
 .project-card {
     background: var(--bg-card);
     border: 1px solid var(--rule);
     border-top: 3px solid var(--accent);
-    padding: 24px 28px;
+    padding: 20px 24px;
     transition: transform var(--transition), box-shadow var(--transition);
-    position: relative;
-    margin-bottom: -1px;
-    /* collapse borders */
 }
 
 .project-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    position: relative;
     z-index: 1;
 }
 
@@ -301,9 +285,8 @@ ul {
 
 .project-header {
     display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 16px;
+    flex-direction: column;
+    gap: 4px;
     margin-bottom: 6px;
 }
 
@@ -322,6 +305,7 @@ ul {
     text-underline-offset: 3px;
     transition: color var(--transition);
     white-space: nowrap;
+    align-self: flex-start;
 }
 
 .project-url:hover {
@@ -342,16 +326,15 @@ ul {
     line-height: 1.6;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   SIDEBAR (right column)
-═══════════════════════════════════════════════════════════════ */
+/* ============================================================
+   SIDEBAR -- mobile base
+   ============================================================ */
 .sidebar {}
 
 .sidebar-block {
     margin-bottom: 40px;
 }
 
-/* TEKNIK */
 .skill-group {
     margin-bottom: 16px;
 }
@@ -371,7 +354,6 @@ ul {
     line-height: 1.5;
 }
 
-/* UTBILDNING */
 .edu-title {
     font-size: 14px;
     font-weight: 700;
@@ -391,7 +373,6 @@ ul {
     line-height: 1.5;
 }
 
-/* STYRKOR */
 .strength-list {
     display: flex;
     flex-direction: column;
@@ -417,26 +398,28 @@ ul {
     margin-top: 5px;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   DARK FOOTER BAND
-═══════════════════════════════════════════════════════════════ */
+.exp-entry {
+    margin-bottom: 24px;
+}
+
+/* ============================================================
+   FOOTER -- mobile base
+   ============================================================ */
 #footer {
     background: var(--panel);
     color: var(--panel-text);
-    padding: 48px 0;
+    padding: 40px 0;
     border-top: 4px solid var(--accent);
 }
 
 .footer-inner {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .footer-name {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 800;
     letter-spacing: -0.02em;
 }
@@ -448,7 +431,7 @@ ul {
 .footer-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px 20px;
+    gap: 8px 16px;
 }
 
 .footer-links a {
@@ -466,33 +449,132 @@ ul {
     font-size: 11px;
     color: #555;
     width: 100%;
-    margin-top: 24px;
     padding-top: 20px;
     border-top: 1px solid #2a2a2a;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════════════════════════════ */
-@media (max-width: 768px) {
-    .hero-inner {
-        grid-template-columns: 1fr;
+/* ============================================================
+   MEDIA QUERIES -- min-width only, mobile-first
+   ============================================================ */
+
+/* 480px+ */
+@media (min-width: 480px) {
+    .hero-name {
+        font-size: clamp(48px, 10vw, 72px);
     }
 
+    .project-header {
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    .project-url {
+        align-self: auto;
+    }
+}
+
+/* 768px+ -- hero side-by-side med grid template areas */
+@media (min-width: 768px) {
+    #hero {
+        padding-top: 64px;
+    }
+
+    /* Text vanster, foto hoger. align-items: end = foto justeras mot botten */
+    .hero-inner {
+        grid-template-areas: 'text photo';
+        grid-template-columns: 1fr auto;
+        gap: 0px;
+        align-items: end;
+    }
+
+    /* Foto: viewport-relativ bredd, obegransad av containerns max-w */
     .hero-photo {
-        display: none;
+        width: clamp(260px, 32vw, 480px);
+        margin-bottom: 20px;
+    }
+
+    .hero-text {
+        padding-bottom: 48px;
     }
 
     .hero-name {
-        font-size: clamp(48px, 14vw, 72px);
+        font-size: clamp(48px, 6vw, 80px);
+        margin-bottom: 24px;
+    }
+
+    .hero-role {
+        font-size: 16px;
+        max-width: 420px;
+    }
+
+    .hero-contact a {
+        font-size: 12px;
+        padding-right: 20px;
+    }
+
+    #main {
+        padding: 56px 0;
     }
 
     .main-grid {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: 1fr 280px;
+        gap: 0 56px;
+        align-items: start;
     }
 
-    .sidebar {
-        border-top: 2px solid var(--rule);
-        padding-top: 40px;
+    .profil-text {
+        font-size: 17px;
+        max-width: 520px;
+    }
+
+    .project-card {
+        padding: 22px 26px;
+    }
+
+    .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+}
+
+/* 1024px+ */
+@media (min-width: 1024px) {
+    .hero-inner {
+        gap: 0px;
+    }
+
+    .hero-photo {
+        width: clamp(320px, 38vw, 520px);
+    }
+
+    .hero-name {
+        font-size: clamp(64px, 7vw, 96px);
+    }
+
+    .hero-role {
+        max-width: 480px;
+    }
+
+    #main {
+        padding: 64px 0;
+    }
+
+    .main-grid {
+        grid-template-columns: 1fr 300px;
+    }
+
+    .profil-text {
+        font-size: 18px;
+        max-width: 580px;
+    }
+
+    .project-card {
+        padding: 24px 28px;
     }
 }

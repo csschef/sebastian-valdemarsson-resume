@@ -1,56 +1,65 @@
 /**
  * Seamless ticker driven by requestAnimationFrame.
- * Resets position the instant we've scrolled exactly one "copy"
- * of the content — no CSS animation restart lag.
+ *
+ * Fixes vs original:
+ *  - x += halfWidth  (not x = 0) to preserve sub-pixel offset -> no lag on reset
+ *  - dynamically clones content until it covers 3x viewport width -> always full-width
  */
 (function () {
+  const strip = document.querySelector('.ticker-strip');
   const inner = document.querySelector('.ticker-inner');
-  if (!inner) return;
+  if (!inner || !strip) return;
 
-  const SPEED = 0.3; // px per frame (~36px/s at 60 fps)
+  const SPEED = 0.4; // px per frame (~24px/s at 60fps)
   let x = 0;
   let halfWidth = 0;
   let rafId = null;
 
   function step() {
     x -= SPEED;
-    // Reset when we've scrolled exactly one full copy (first half = second half)
     if (x <= -halfWidth) {
-      x = 0;
+      x += halfWidth; // sub-pixel-safe seamless reset
     }
-    inner.style.transform = `translateX(${x}px)`;
+    inner.style.transform = 'translateX(' + x + 'px)';
     rafId = requestAnimationFrame(step);
   }
 
   function init() {
-    // Measure after images have had a chance to load
+    // Original items (HTML already has 2 copies, so halfWidth = scrollWidth / 2)
     halfWidth = inner.scrollWidth / 2;
+
+    // Clone more if one copy doesn't cover the strip width
+    if (halfWidth < strip.offsetWidth + 1) {
+      var origItems = Array.prototype.slice.call(inner.children);
+      while (inner.scrollWidth / 2 < strip.offsetWidth + 1) {
+        origItems.forEach(function (el) {
+          inner.appendChild(el.cloneNode(true));
+        });
+      }
+      halfWidth = inner.scrollWidth / 2;
+    }
+
     if (rafId) cancelAnimationFrame(rafId);
+    x = 0;
     rafId = requestAnimationFrame(step);
   }
 
-  // Start after all images in the ticker are loaded
-  const images = inner.querySelectorAll('img');
-  let loaded = 0;
+  // Only wait for images that haven't loaded yet
+  var images = Array.prototype.slice.call(inner.querySelectorAll('img'));
+  var pending = images.filter(function (img) { return !img.complete; });
 
-  if (images.length === 0) {
+  if (pending.length === 0) {
     init();
     return;
   }
 
-  function onLoad() {
-    loaded++;
-    if (loaded >= images.length) {
-      init();
+  var loaded = 0;
+  pending.forEach(function (img) {
+    function done() {
+      loaded++;
+      if (loaded >= pending.length) init();
     }
-  }
-
-  images.forEach((img) => {
-    if (img.complete) {
-      onLoad();
-    } else {
-      img.addEventListener('load', onLoad);
-      img.addEventListener('error', onLoad); // count errors too so we never stall
-    }
+    img.addEventListener('load', done, { once: true });
+    img.addEventListener('error', done, { once: true });
   });
 })();
