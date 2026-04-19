@@ -182,7 +182,8 @@ ul {
     object-fit: cover;
     object-position: center top;
     filter: grayscale(15%);
-    margin-left: -72px;
+    margin-left: -120px;
+    margin-bottom: 40px
 }
 
 /* ── Ticker strip ─────────────────────────────────────────────── */
