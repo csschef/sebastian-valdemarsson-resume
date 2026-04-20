@@ -22,14 +22,14 @@
     --panel: #e9eef8;
 
     /* === Text === */
-    --text: #1b2233;
+    --text: #454443;
     --text-muted: #49556e;
     --text-sub: #7b869d;
     --panel-text: #1b2233;
 
     /* === Accent === */
-    --accent: #6a5cff;
-    --accent-dk: #4e43d4;
+    --accent: #4076ec;
+    --accent-dk: #4076ec;
     --accent-soft: rgba(106, 92, 255, 0.08);
     --accent-border: rgba(106, 92, 255, 0.18);
 
