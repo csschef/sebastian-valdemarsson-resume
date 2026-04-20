@@ -12,16 +12,59 @@
 }
 
 :root {
-    --bg: #F5F0E8;
-    --bg-card: #FDFAF4;
-    --text: #1A1A1A;
-    --text-muted: #6B6B6B;
-    --text-sub: #999;
-    --accent: #E8C547;
-    --accent-dk: #C9A91E;
-    --rule: #D4CFC5;
-    --panel: #1A1A1A;
-    --panel-text: #F5F0E8;
+    /* === Backgrounds === */
+    --bg: #0c0b1a;
+    --bg-card: #111128;
+    --bg-hero-center: #111028;
+    --bg-hero-mid: #0d0c20;
+    --bg-hero-edge: #070611;
+    --bg-main-top: #0d0c1a;
+    --bg-main-mid: #0f0e20;
+    --bg-main-bot: #0a0918;
+
+    /* === Text === */
+    --text: #E4E4F0;
+    --text-muted: #b2b2bb;
+    --text-sub: #696992;
+
+    /* === Accent --- tech blue-purple === */
+    --accent: #7C6FEF;
+    --accent-dk: #5855D6;
+
+
+    /* === Structural === */
+    --rule: #36364d;
+    --panel: #080814;
+    --panel-text: #E4E4F0;
+
+    /* === Derived transparencies === */
+    --accent-ghost: rgba(124, 111, 239, 0.08);
+    --accent-border: rgba(124, 111, 239, 0.18);
+    --contact-dot: #3A3A5C;
+    --contact-link: #7070A0;
+    --accent-cool: #5B8EF0;
+    --accent-cool-dk: #3B6EE8;
+    --accent-cool-rgb: 91, 142, 240;
+
+    --accent-violet: #A87FFF;
+    --accent-violet-dk: #8A5FDD;
+    --accent-violet-rgb: 168, 127, 255;
+
+    --accent-pink: #D455C4;
+    --accent-pink-dk: #AE3AA0;
+    --accent-pink-rgb: 212, 85, 196;
+
+    --accent-rose: #E8486E;
+    --accent-rose-dk: #C42F54;
+    --accent-rose-rgb: 232, 72, 110;
+
+    /* === Gradients === */
+    --gradient-cool-warm: linear-gradient(135deg, var(--accent-cool) 0%, var(--accent) 40%, var(--accent-violet) 100%);
+    --gradient-warm: linear-gradient(135deg, var(--accent-violet) 0%, var(--accent-pink) 55%, var(--accent-rose) 100%);
+    --gradient-full: linear-gradient(135deg, var(--accent-cool) 0%, var(--accent) 33%, var(--accent-pink) 66%, var(--accent-rose) 100%);
+
+
+    /* === Misc === */
     --font: 'Inter', system-ui, sans-serif;
     --max-w: 960px;
     --transition: 200ms ease;
@@ -65,67 +108,94 @@ ul {
 /* ============================================================
    TYPOGRAPHY HELPERS
    ============================================================ */
-.label {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-sub);
-}
-
-.accent-rule {
-    display: block;
-    width: 48px;
-    height: 3px;
-    background: var(--accent);
-    margin-bottom: 20px;
-}
-
 .section-heading {
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--text-sub);
-    border-top: 2px solid var(--text);
-    padding-top: 10px;
+    color: var(--accent);
+    margin-top: 56px;
     margin-bottom: 28px;
 }
 
+.section-heading::before {
+    content: '';
+    display: block;
+    height: 1px;
+    background: linear-gradient(to right,
+            rgba(91, 142, 240, 0.18),
+            rgba(255, 174, 255, 0.45),
+            rgba(91, 142, 240, 0.18));
+    margin-bottom: 16px;
+}
+
+/* First heading in each column gets no extra top margin */
+.main-left section:first-child .section-heading,
+.sidebar-block:first-child .section-heading {
+    margin-top: 0;
+}
+
 /* ============================================================
-   HERO
-   Mobile:  text ovanfor, foto nedanfor (fore tickern)
-   Desktop: text vanster | foto hoger  (grid template areas)
+   HERO  --  mobile base
    ============================================================ */
 #hero {
-    background: var(--panel);
+    background:
+        linear-gradient(to bottom, transparent 50%, var(--bg) 100%),
+        radial-gradient(ellipse at 55% 85%,
+            rgba(17, 16, 40, 0.65) 0%,
+            rgba(13, 12, 32, 0.78) 55%,
+            rgba(7, 6, 17, 0.92) 100%);
     color: var(--panel-text);
     padding-top: 40px;
 }
 
-/* Mobile: en kolumn, text ovan, foto under */
+/* Mobile: text ovan, foto under */
 .hero-inner {
     display: grid;
     grid-template-areas:
-        'text'
-        'photo';
+        'top'
+        'role'
+        'contact';
+    grid-template-columns: 1fr;
 }
 
-.hero-text {
-    grid-area: text;
+.hero-text-top {
+    grid-area: top;
+    padding-bottom: 0;
+}
+
+
+.hero-role-wrap {
+    grid-area: role;
+    padding-bottom: 0;
+}
+
+.hero-contact {
+    grid-area: contact;
     padding-bottom: 32px;
 }
 
+/* Desktop photo — hidden on mobile, shown at 768px+ */
 .hero-photo {
+    display: none;
     grid-area: photo;
+    position: relative;
+    isolation: isolate;
+    -webkit-mask-image:
+        linear-gradient(to bottom, black 80%, transparent 100%),
+        linear-gradient(to right, transparent 0%, black 25%, black 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+        linear-gradient(to bottom, black 80%, transparent 100%),
+        linear-gradient(to right, transparent 0%, black 25%, black 100%);
+    mask-composite: intersect;
 }
 
-/* Visa hela bilden i ratta proportioner, ingen beskaring */
 .hero-photo img {
     display: block;
     width: 100%;
     height: auto;
-    filter: grayscale(15%);
+    filter: brightness(0.88);
 }
 
 .hero-eyebrow {
@@ -148,13 +218,13 @@ ul {
 
 .hero-name span {
     display: block;
-    color: var(--accent);
+    color: var(--accent-violet-dk);
 }
 
 .hero-role {
     font-size: 15px;
     font-weight: 400;
-    color: #888;
+    color: var(--text-muted);
     margin-bottom: 28px;
     line-height: 1.5;
 }
@@ -163,14 +233,18 @@ ul {
     display: flex;
     flex-wrap: wrap;
     gap: 6px 0;
-    border-top: 1px solid #333;
+    border-top: 1px solid transparent;
+    border-image: linear-gradient(to right,
+            rgba(91, 142, 240, 0.18),
+            rgba(255, 174, 255, 0.45),
+            rgba(91, 142, 240, 0.18)) 1;
     padding-top: 20px;
 }
 
 .hero-contact a {
     font-size: 11px;
     font-weight: 500;
-    color: #aaa;
+    color: var(--contact-link);
     transition: color var(--transition);
     padding-right: 16px;
     position: relative;
@@ -185,7 +259,7 @@ ul {
     width: 3px;
     height: 3px;
     border-radius: 50%;
-    background: #555;
+    background: var(--contact-dot);
 }
 
 .hero-contact a:hover {
@@ -196,24 +270,51 @@ ul {
    TICKER / NEWS BAND
    ============================================================ */
 .ticker-strip {
-    background: var(--accent);
+    max-width: calc(var(--max-w) + 160px);
+    margin: 0 auto;
     padding: 10px 0;
     overflow: hidden;
     white-space: nowrap;
+    background: var(--bg);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-top: 1px solid var(--accent-border);
+    border-bottom: 1px solid var(--accent-border);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 72px, black calc(100% - 72px), transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 72px, black calc(100% - 72px), transparent 100%);
 }
 
-.ticker-inner {
-    display: inline-flex;
+/* ticker-track: the element that moves */
+.ticker-track {
+    display: flex;
+    width: max-content;
+    animation: ticker-scroll linear infinite;
+    /* animation-duration set by JS */
+}
+
+@keyframes ticker-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.ticker-set {
+    display: flex;
     align-items: center;
     gap: 40px;
+    padding-right: 40px;
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    will-change: transform;
+    color: var(--accent-violet);
 }
 
-.ticker-inner span {
+.ticker-set span {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -221,16 +322,20 @@ ul {
 }
 
 /* ============================================================
-   MAIN CONTENT -- mobile base (single column)
+   MAIN CONTENT  --  mobile base
    ============================================================ */
 #main {
-    padding: 40px 0;
+    background: linear-gradient(180deg,
+            var(--bg-main-top) 0%,
+            var(--bg-main-mid) 50%,
+            var(--bg-main-bot) 100%);
+    padding: 56px 0;
 }
 
 .main-grid {
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 64px;
 }
 
 /* ============================================================
@@ -243,8 +348,9 @@ ul {
 .profil-text {
     font-size: 16px;
     font-weight: 300;
-    line-height: 1.65;
+    line-height: 1.75;
     color: var(--text);
+    margin-bottom: 8px;
 }
 
 .profil-text strong {
@@ -261,33 +367,24 @@ ul {
 .project-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 24px;
 }
 
 .project-card {
-    background: var(--bg-card);
+    background: linear-gradient(135deg, #2f243b 0%, #141420 100%);
     border: 1px solid var(--rule);
-    border-top: 3px solid var(--accent);
-    padding: 20px 24px;
+    border-radius: 12px;
+    padding: 24px 28px;
     transition: transform var(--transition), box-shadow var(--transition);
 }
 
-.project-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-    position: relative;
-    z-index: 1;
-}
 
-.project-card:nth-child(even) {
-    border-top-color: var(--text);
-}
 
 .project-header {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
 }
 
 .project-title {
@@ -309,7 +406,7 @@ ul {
 }
 
 .project-url:hover {
-    color: var(--accent-dk);
+    color: var(--accent);
 }
 
 .project-stack {
@@ -317,7 +414,7 @@ ul {
     font-weight: 500;
     color: var(--text-sub);
     letter-spacing: 0.04em;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
 }
 
 .project-body {
@@ -327,16 +424,15 @@ ul {
 }
 
 /* ============================================================
-   SIDEBAR -- mobile base
+   SIDEBAR  --  mobile base
    ============================================================ */
-.sidebar {}
 
 .sidebar-block {
-    margin-bottom: 40px;
+    margin-bottom: 52px;
 }
 
 .skill-group {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .skill-cat {
@@ -350,7 +446,7 @@ ul {
 
 .skill-items {
     font-size: 13px;
-    color: var(--text);
+    color: var(--text-muted);
     line-height: 1.5;
 }
 
@@ -363,13 +459,13 @@ ul {
 
 .edu-sub {
     font-size: 12px;
-    color: var(--text-muted);
+    color: var(--text-sub);
     margin-bottom: 8px;
 }
 
 .edu-desc {
     font-size: 12px;
-    color: var(--text-muted);
+    color: var(--text-sub);
     line-height: 1.5;
 }
 
@@ -384,7 +480,7 @@ ul {
     align-items: flex-start;
     gap: 10px;
     font-size: 13px;
-    color: var(--text);
+    color: var(--text-muted);
     line-height: 1.4;
 }
 
@@ -399,17 +495,17 @@ ul {
 }
 
 .exp-entry {
-    margin-bottom: 24px;
+    margin-bottom: 28px;
 }
 
 /* ============================================================
-   FOOTER -- mobile base
+   FOOTER  --  mobile base
    ============================================================ */
 #footer {
     background: var(--panel);
     color: var(--panel-text);
     padding: 40px 0;
-    border-top: 4px solid var(--accent);
+    border-top: 1px solid var(--rule);
 }
 
 .footer-inner {
@@ -422,10 +518,7 @@ ul {
     font-size: 20px;
     font-weight: 800;
     letter-spacing: -0.02em;
-}
-
-.footer-name span {
-    color: var(--accent);
+    color: var(--text-muted);
 }
 
 .footer-links {
@@ -437,7 +530,7 @@ ul {
 .footer-links a {
     font-size: 12px;
     font-weight: 500;
-    color: #888;
+    color: var(--text-muted);
     transition: color var(--transition);
 }
 
@@ -447,14 +540,14 @@ ul {
 
 .footer-copy {
     font-size: 11px;
-    color: #555;
+    color: var(--text-sub);
     width: 100%;
     padding-top: 20px;
-    border-top: 1px solid #2a2a2a;
+    border-top: 1px solid var(--rule);
 }
 
 /* ============================================================
-   MEDIA QUERIES -- min-width only, mobile-first
+   MEDIA QUERIES  --  min-width only, mobile-first
    ============================================================ */
 
 /* 480px+ */
@@ -475,27 +568,46 @@ ul {
     }
 }
 
-/* 768px+ -- hero side-by-side med grid template areas */
+/* 768px+  --  hero side-by-side, two-column main */
 @media (min-width: 768px) {
     #hero {
         padding-top: 64px;
     }
 
-    /* Text vanster, foto hoger. align-items: end = foto justeras mot botten */
-    .hero-inner {
-        grid-template-areas: 'text photo';
-        grid-template-columns: 1fr auto;
-        gap: 0px;
-        align-items: end;
+    .hero-photo-mobile {
+        display: none;
     }
 
-    /* Foto: viewport-relativ bredd, obegransad av containerns max-w */
     .hero-photo {
-        width: clamp(260px, 32vw, 480px);
-        margin-bottom: 20px;
+        display: block;
+        grid-row: 1 / 4;
+        align-self: start;
+        width: clamp(160px, 20vw, 270px);
     }
 
-    .hero-text {
+    .hero-inner {
+        grid-template-areas:
+            'top    photo'
+            'role   photo'
+            'contact photo';
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto 1fr;
+        gap: 0;
+    }
+
+    .hero-text-top {
+        padding-right: 0;
+        align-self: end;
+        padding-bottom: 12px;
+    }
+
+    .hero-role-wrap {
+        align-self: start;
+        padding-bottom: 0;
+    }
+
+    .hero-contact {
+        align-self: start;
         padding-bottom: 48px;
     }
 
@@ -546,11 +658,11 @@ ul {
 /* 1024px+ */
 @media (min-width: 1024px) {
     .hero-inner {
-        gap: 0px;
+        gap: 0;
     }
 
     .hero-photo {
-        width: clamp(320px, 38vw, 520px);
+        width: clamp(180px, 22vw, 300px);
     }
 
     .hero-name {
