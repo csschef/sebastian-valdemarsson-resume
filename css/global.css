@@ -40,8 +40,6 @@
     --contact-link: #55627d;
 
     /* === Decorative === */
-    --hero-glow-a: rgba(106, 92, 255, 0.10);
-    --hero-glow-b: rgba(65, 120, 255, 0.08);
     --line-fade: linear-gradient(to right,
             transparent 0%,
             rgba(106, 92, 255, 0.22),
@@ -53,8 +51,8 @@
     --font: 'Inter', system-ui, sans-serif;
     --max-w: 960px;
     --transition: 180ms ease;
-    --shadow-soft: 0 8px 28px rgba(25, 34, 54, 0.05);
-    --radius: 14px;
+    --shadow-soft: 0 8px 28px rgba(25, 34, 54, 0.15);
+    --radius: 6px;
 }
 
 html {
@@ -123,9 +121,7 @@ ul {
    HERO
    ============================================================ */
 #hero {
-    background: radial-gradient(circle at 15% 20%, var(--hero-glow-a), transparent 30%),
-        radial-gradient(circle at 85% 0%, var(--hero-glow-b), transparent 28%),
-        linear-gradient(to bottom, #f7f9ff 0%, var(--bg-hero) 100%);
+    background: url(../assets/img/hero-background.png);
     color: var(--panel-text);
     padding-top: 40px;
     border-bottom: 1px solid var(--rule);
@@ -221,7 +217,7 @@ ul {
     color: var(--text-muted);
     background: #ffffff;
     border: 1px solid var(--rule);
-    border-radius: 6px;
+    border-radius: var(--radius);
     padding: 5px 14px;
     box-shadow: 0 1px 4px rgba(25, 34, 54, 0.07);
     transition: color var(--transition), box-shadow var(--transition), border-color var(--transition), transform var(--transition);
@@ -607,7 +603,7 @@ ul {
         display: none;
     }
 
-    .hero-name > span {
+    .hero-name>span {
         padding-right: clamp(16px, 2vw, 32px);
     }
 
