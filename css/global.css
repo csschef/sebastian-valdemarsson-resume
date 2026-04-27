@@ -55,6 +55,48 @@
     --radius: 6px;
 }
 
+/* ============================================================
+   DARK MODE VARIABLES
+   ============================================================ */
+[data-theme="dark"] {
+    /* === Backgrounds === */
+    --bg: #0d1117;
+    --bg-hero: #0f1520;
+    --bg-main-top: #111827;
+    --bg-main-mid: #0f1520;
+    --bg-main-bot: #0d1117;
+    --bg-card: #1a2235;
+    --panel: #1e2d45;
+
+    /* === Text === */
+    --text: #e2e8f4;
+    --text-muted: #a8b8d4;
+    --text-sub: #6b7fa0;
+    --panel-text: #e8edf8;
+
+    /* === Accent — behålls exakt som i light mode === */
+    --accent: #4076ec;
+    --accent-dk: #4076ec;
+    --accent-soft: rgba(64, 118, 236, 0.12);
+    --accent-border: rgba(64, 118, 236, 0.30);
+
+    /* === Structural === */
+    --rule: #263045;
+    --rule-strong: #2e3d5a;
+    --contact-dot: #3d5070;
+    --contact-link: #8fa3c4;
+
+    /* === Decorative === */
+    --line-fade: linear-gradient(to right,
+            transparent 0%,
+            rgba(64, 118, 236, 0.28),
+            rgba(64, 118, 236, 0.28),
+            transparent 100%);
+
+    /* === Misc === */
+    --shadow-soft: 0 8px 28px rgba(0, 0, 0, 0.45);
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -122,10 +164,17 @@ ul {
    ============================================================ */
 #hero {
     background: url(../assets/img/hero-background.png);
+    background-size: cover;
+    background-position: center;
     color: var(--panel-text);
+    transition: border-color var(--transition);
     padding-top: 40px;
     border-bottom: 1px solid var(--rule);
     box-shadow: inset 0 -80px 60px -40px rgba(25, 34, 54, 0.12);
+}
+
+[data-theme="dark"] #hero {
+    background-image: url(../assets/img/hero-background-dark.png);
 }
 
 .hero-inner {
@@ -216,7 +265,7 @@ ul {
     font-size: 11px;
     font-weight: 600;
     color: var(--text-muted);
-    background: #ffffff;
+    background: var(--bg-card);
     border: 1px solid var(--rule);
     border-radius: var(--radius);
     padding: 5px 14px;
@@ -229,6 +278,101 @@ ul {
     border-color: var(--accent-border);
     box-shadow: 0 3px 10px rgba(106, 92, 255, 0.14), 0 1px 3px rgba(25, 34, 54, 0.06);
     transform: translateY(-1px);
+}
+
+/* ============================================================
+   THEME TOGGLE BUTTON
+   ============================================================ */
+#theme-toggle {
+    position: fixed;
+    top: 16px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 6px 14px 6px 10px;
+    cursor: pointer;
+    font-family: var(--font);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+    transition: background var(--transition), border-color var(--transition),
+        color var(--transition), box-shadow var(--transition), transform var(--transition);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+#theme-toggle:hover {
+    border-color: var(--accent-border);
+    color: var(--accent-dk);
+    box-shadow: 0 4px 16px rgba(64, 118, 236, 0.18);
+    transform: translateY(-1px);
+}
+
+#theme-toggle:active {
+    transform: translateY(0);
+}
+
+/* The pill track */
+.toggle-track {
+    position: relative;
+    width: 30px;
+    height: 17px;
+    background: var(--rule-strong);
+    border-radius: 999px;
+    transition: background 220ms ease;
+    flex-shrink: 0;
+}
+
+[data-theme="dark"] .toggle-track {
+    background: var(--accent);
+}
+
+/* The sliding circle */
+.toggle-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 13px;
+    height: 13px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.20);
+    transition: transform 220ms ease;
+}
+
+[data-theme="dark"] .toggle-thumb {
+    transform: translateX(13px);
+}
+
+/* Sun / moon icons */
+.toggle-icon-sun,
+.toggle-icon-moon {
+    font-size: 12px;
+    line-height: 1;
+    transition: opacity var(--transition);
+}
+
+.toggle-icon-sun {
+    color: #f59e0b;
+}
+
+.toggle-icon-moon {
+    color: var(--accent-dk);
+}
+
+[data-theme="dark"] .toggle-icon-sun {
+    opacity: 0.35;
+}
+
+[data-theme="light"] .toggle-icon-moon {
+    opacity: 0.35;
 }
 
 /* ============================================================
@@ -247,6 +391,13 @@ ul {
     border-bottom: 1px solid rgba(106, 92, 255, 0.10);
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 72px, black calc(100% - 72px), transparent 100%);
     mask-image: linear-gradient(to right, transparent 0%, black 72px, black calc(100% - 72px), transparent 100%);
+    transition: background var(--transition), border-color var(--transition);
+}
+
+[data-theme="dark"] .ticker-strip {
+    background: rgba(15, 21, 32, 0.72);
+    border-top-color: rgba(64, 118, 236, 0.14);
+    border-bottom-color: rgba(64, 118, 236, 0.14);
 }
 
 .ticker-track {
@@ -335,7 +486,7 @@ ul {
 }
 
 .project-card {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(249, 251, 255, 0.96) 100%);
+    background: var(--bg-card);
     border: 1px solid var(--rule);
     border-radius: var(--radius);
     padding: 24px 28px;
@@ -465,7 +616,7 @@ ul {
    FOOTER
    ============================================================ */
 #footer {
-    background: linear-gradient(to bottom, #eef2fa 0%, #e5ebf6 100%);
+    background: linear-gradient(to bottom, var(--bg-main-bot) 0%, var(--bg) 100%);
     color: var(--panel-text);
     padding: 40px 0;
     border-top: 1px solid var(--rule);
@@ -497,7 +648,7 @@ ul {
     font-size: 11px;
     font-weight: 600;
     color: var(--text-muted);
-    background: #ffffff;
+    background: var(--bg-card);
     border: 1px solid var(--rule);
     border-radius: 6px;
     padding: 5px 14px;
