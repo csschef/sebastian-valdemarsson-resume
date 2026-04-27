@@ -164,6 +164,11 @@ ul {
     margin-top: 0;
 }
 
+/* Hide decorative line on profil heading in mobile view */
+#profil .section-heading::before {
+    display: none;
+}
+
 /* ============================================================
    HERO
    ============================================================ */
@@ -559,6 +564,10 @@ ul {
     margin-bottom: 52px;
 }
 
+.sidebar-block:last-child {
+    margin-bottom: 0;
+}
+
 .skill-group {
     margin-bottom: 20px;
 }
@@ -718,6 +727,10 @@ ul {
 
 /* 768px+ */
 @media (min-width: 768px) {
+    #profil .section-heading::before {
+        display: block;
+    }
+
     #hero {
         padding-top: 80px;
     }
