@@ -17,6 +17,13 @@
 
 <body>
 
+    <!-- ── Theme toggle ──────────────────────────────────────── -->
+    <button id="theme-toggle" aria-label="Växla mörkt/ljust läge">
+        <span class="toggle-icon-sun" aria-hidden="true"><i class="fa-solid fa-sun"></i></span>
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+        <span class="toggle-icon-moon" aria-hidden="true"><i class="fa-solid fa-moon"></i></span>
+    </button>
+
     <!-- ══════════════════════════════════════════════════════════
        HERO / MASTHEAD
   ══════════════════════════════════════════════════════════ -->
@@ -33,7 +40,7 @@
                 </div>
 
                 <div class="hero-photo">
-                    <img src="assets/img/profile-picture-2.png" alt="Porträttfoto av Sebastian Valdemarsson" />
+                    <img src="assets/img/profile-picture.png" alt="Porträttfoto av Sebastian Valdemarsson" />
                 </div>
 
                 <div class="hero-role-wrap">
@@ -253,18 +260,27 @@
                         <div class="exp-entry">
                             <p class="edu-title">Inköpare</p>
                             <p class="edu-sub">KLS Ugglarps AB · 2025 - Pågående · Hybrid</p>
-                            <p class="edu-desc">Ansvarar för dataanalys och uppföljning inom inköp med fokus på leverantörsstruktur och spend. Konsoliderar och kvalitetssäkrar data från flera system (SAP, Jaggaer) för att ta fram beslutsunderlag.<br><br> 
-                                Utvecklar analyser i Excel (Power Query, pivottabeller) för att identifiera mönster, kategorisera leverantörer och följa upp KPI:er kopplade till kostnad, avtal och efterlevnad.
-                                Bidrar till strukturering av masterdata och ökad transparens i leverantörsbasen, vilket möjliggör mer datadrivet inköpsarbete.
+                            <p class="edu-desc">Ansvarar för dataanalys och uppföljning inom inköp med fokus på
+                                leverantörsstruktur och spend. Konsoliderar och kvalitetssäkrar data från flera system
+                                (SAP, Jaggaer) för att ta fram beslutsunderlag.<br><br>
+                                Utvecklar analyser i Excel (Power Query, pivottabeller) för att identifiera mönster,
+                                kategorisera leverantörer och följa upp KPI:er kopplade till kostnad, avtal och
+                                efterlevnad.
+                                Bidrar till strukturering av masterdata och ökad transparens i leverantörsbasen, vilket
+                                möjliggör mer datadrivet inköpsarbete.
                             </p>
                         </div>
 
                         <div class="exp-entry">
                             <p class="edu-title">Produktutvecklare</p>
                             <p class="edu-sub">KLS Ugglarps AB · 2019 - 2025</p>
-                            <p class="edu-desc">Ansvarade för utveckling av nya och befintliga produkter inom livsmedelsbranschen, från idé till lansering, i en av Sveriges största livsmedelskoncerner. 
-                                Drev och koordinerade projekt inom produktutveckling, sensorik och masterdata i en organisation med hög komplexitet och stora produktionsvolymer.<br><br> 
-                                Var projektledare och testansvarig för affärsutvecklingens räkning vid utvecklingen och implementationen av nytt projektverktyg i nära samarbete med IT.</p>
+                            <p class="edu-desc">Ansvarade för utveckling av nya och befintliga produkter inom
+                                livsmedelsbranschen, från idé till lansering, i en av Sveriges största
+                                livsmedelskoncerner.
+                                Drev och koordinerade projekt inom produktutveckling, sensorik och masterdata i en
+                                organisation med hög komplexitet och stora produktionsvolymer.<br><br>
+                                Var projektledare och testansvarig för affärsutvecklingens räkning vid utvecklingen och
+                                implementationen av nytt projektverktyg i nära samarbete med IT.</p>
                         </div>
                     </div>
 
@@ -298,6 +314,7 @@
         </div>
     </footer>
     <script src="js/ticker.js"></script>
+    <script src="js/theme.js"></script>
 </body>
 
 </html>
