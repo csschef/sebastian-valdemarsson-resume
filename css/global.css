@@ -11,6 +11,11 @@
     padding: 0;
 }
 
+::selection {
+    background-color: var(--accent);
+    color: #ffffff;
+}
+
 :root {
     /* === Backgrounds === */
     --bg: #f3f5fb;
