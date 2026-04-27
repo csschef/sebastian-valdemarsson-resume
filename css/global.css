@@ -234,7 +234,7 @@ ul {
     font-size: clamp(40px, 12vw, 64px);
     font-weight: 900;
     line-height: 0.95;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.02em;
     color: var(--panel-text);
     margin-bottom: 20px;
 }
