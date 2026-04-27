@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sebastian Valdemarsson - Fullstack Developer</title>
     <meta name="description"
-        content="CV och portfölj för Sebastian Valdemarsson, fullstackutvecklare under utbildning på Medieinstitutet. Starkt fokus på kreativ frontend och användarupplevelse." />
+        content="CV and portfolio for Sebastian Valdemarsson, full-stack developer in training at Medieinstitutet. Strong focus on creative frontend development and user experience." />
+    <link rel="alternate" hreflang="sv" href="../index.html" />
+    <link rel="alternate" hreflang="en" href="index.html" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="../css/global.css" />
 </head>
 
 <body>
 
     <!-- ── Top controls: language + theme ───────────────────── -->
     <div class="top-controls">
-        <nav class="lang-switch" aria-label="Välj språk">
-            <a href="index.html" class="lang-active" aria-current="page" hreflang="sv">SV</a>
+        <nav class="lang-switch" aria-label="Choose language">
+            <a href="../index.html" hreflang="sv">SV</a>
             <span class="lang-divider" aria-hidden="true"></span>
-            <a href="en/index.html" hreflang="en">EN</a>
+            <a href="index.html" class="lang-active" aria-current="page" hreflang="en">EN</a>
         </nav>
-        <button id="theme-toggle" aria-label="Växla mörkt/ljust läge">
+        <button id="theme-toggle" aria-label="Toggle dark/light mode">
             <i class="fa-solid fa-sun toggle-icon-sun" aria-hidden="true"></i>
             <i class="fa-solid fa-moon toggle-icon-moon" aria-hidden="true"></i>
         </button>
@@ -38,7 +40,7 @@
             <div class="hero-inner">
 
                 <div class="hero-text-top">
-                    <p class="hero-eyebrow">CV &amp; Portfölj 2026</p>
+                    <p class="hero-eyebrow">CV &amp; Portfolio 2026</p>
 
                     <h1 class="hero-name">
                         Sebastian<span>Valdemarsso<span class="hero-name-n">n</span></span>
@@ -46,20 +48,20 @@
                 </div>
 
                 <div class="hero-photo">
-                    <img src="assets/img/profile-picture.png" alt="Porträttfoto av Sebastian Valdemarsson" />
+                    <img src="../assets/img/profile-picture.png" alt="Portrait photo of Sebastian Valdemarsson" />
                 </div>
 
                 <div class="hero-role-wrap">
                     <p class="hero-role">
-                        Fullstackutvecklare under utbildning på Medieinstitutet.<br>
-                        Kreativ frontend, robust backend, tydligt användarfokus.
+                        Full-stack developer in training at Medieinstitutet.<br>
+                        Creative frontend, robust backend, clear user focus.
                     </p>
                 </div>
 
-                <nav class="hero-contact" aria-label="Kontaktlänkar">
-                    <a href="tel:+46730426260" id="contact-phone"><i class="fa-solid fa-phone"></i> Telefon</a>
+                <nav class="hero-contact" aria-label="Contact links">
+                    <a href="tel:+46730426260" id="contact-phone"><i class="fa-solid fa-phone"></i> Phone</a>
                     <a href="mailto:valdemarsson.sebastian@gmail.com" id="contact-email"><i
-                            class="fa-solid fa-paper-plane"></i> E-post</a>
+                            class="fa-solid fa-paper-plane"></i> Email</a>
                     <a href="https://github.com/csschef" target="_blank" rel="noopener" id="contact-github"><i
                             class="fa-brands fa-github"></i> GitHub</a>
                     <a href="https://www.linkedin.com/in/sebastianvaldemarsson" target="_blank" rel="noopener"
@@ -125,23 +127,22 @@
                 <!-- ── Left column ───────────────────────────────────── -->
                 <div class="main-left">
 
-                    <!-- PROFIL -->
+                    <!-- PROFILE -->
                     <section id="profil" aria-labelledby="profil-heading">
-                        <h2 class="section-heading" id="profil-heading">Profil</h2>
+                        <h2 class="section-heading" id="profil-heading">Profile</h2>
                         <p class="profil-text">
-                            Jag är en fullstackutvecklare under utbildning på Medieinstitutet
-                            med starkt fokus på <strong>kreativ frontend</strong>,
-                            användarupplevelse och tydlig teknisk struktur. Jag gillar att
-                            bygga produkter som känns genomarbetade visuellt och fungerar
-                            stabilt i vardagen. På GitHub driver jag flera projekt från idé
-                            till leverans - dashboard-lösningar, fullstack-appar och verktyg
-                            med tydligt användarfokus.
+                            I'm a full-stack developer in training at Medieinstitutet with a strong
+                            focus on <strong>creative frontend development</strong>, user experience,
+                            and clear technical structure. I enjoy building products that feel
+                            polished visually and work reliably in everyday use. On GitHub, I develop and maintain
+                            projects from concept to deployment - dashboard solutions, full-stack
+                            apps, and tools with a distinct user-first mindset.
                         </p>
                     </section>
 
-                    <!-- PROJEKT -->
+                    <!-- PROJECTS -->
                     <section id="projekt" aria-labelledby="projekt-heading">
-                        <h2 class="section-heading" id="projekt-heading">Projekt & Portfolio</h2>
+                        <h2 class="section-heading" id="projekt-heading">Projects &amp; Portfolio</h2>
 
                         <ul class="project-list">
 
@@ -152,9 +153,9 @@
                                         rel="noopener" id="proj-hasp-link">github.com/csschef/hasp</a>
                                 </div>
                                 <p class="project-stack">TypeScript · Vite · Web Components · WebSocket API</p>
-                                <p class="project-body">Mobilfokuserat, högpresterande dashboard-projekt med
-                                    skräddarsydda UI-komponenter, realtidsuppdateringar och tydligt fokus på snabb
-                                    respons och premiumkänsla.</p>
+                                <p class="project-body">Mobile-focused, high-performance dashboard project built with
+                                    custom UI components, real-time updates, and a clear emphasis on fast response times
+                                    and a premium user experience.</p>
                             </li>
 
                             <li class="project-card">
@@ -164,8 +165,9 @@
                                         rel="noopener" id="proj-oleadb-link">github.com/csschef/oleadb</a>
                                 </div>
                                 <p class="project-stack">Node.js · Express · PostgreSQL · Vanilla JS · PM2</p>
-                                <p class="project-body">Fullstack-system för recepthantering som körs självhostat 24/7.
-                                    Projektet visar backendstruktur, databasdesign och driftstänk i praktiken.</p>
+                                <p class="project-body">Full-stack recipe management system running self-hosted 24/7.
+                                    The project demonstrates backend architecture, database design, and a
+                                    production-minded approach.</p>
                             </li>
 
                             <li class="project-card">
@@ -174,10 +176,10 @@
                                     <a class="project-url" href="https://github.com/csschef/mjs-phone" target="_blank"
                                         rel="noopener" id="proj-mjs-link">github.com/csschef/mjs-phone</a>
                                 </div>
-                                <p class="project-stack">JavaScript · DOM-hantering · LocalStorage</p>
-                                <p class="project-body">Betygsgrundande inlämning i JavaScript - en kontaktlista med
-                                    skapa-, redigera- och radera-flöden. Fokus på UI-tillstånd och persistens i
-                                    LocalStorage.</p>
+                                <p class="project-stack">JavaScript · DOM Manipulation · LocalStorage</p>
+                                <p class="project-body">Graded JavaScript assignment - a contact list application with
+                                    create, edit, and delete flows. Focus on UI state management and LocalStorage
+                                    persistence.</p>
                             </li>
 
                             <li class="project-card">
@@ -186,9 +188,9 @@
                                     <a class="project-url" href="https://gameboxbar.se" target="_blank" rel="noopener"
                                         id="proj-gameboxbar-link">gameboxbar.se</a>
                                 </div>
-                                <p class="project-stack">Frontend · UI-design · Varumärkeskänsla</p>
-                                <p class="project-body">Modern konceptsite med responsiv layout, tydlig visuell
-                                    identitet och interaktiva komponenter byggd med kreativ riktning i fokus.</p>
+                                <p class="project-stack">Frontend · UI Design · Brand Identity</p>
+                                <p class="project-body">Modern concept site with responsive layout, clear visual
+                                    identity, and interactive components built with a strong creative direction.</p>
                             </li>
 
                             <li class="project-card">
@@ -197,9 +199,9 @@
                                     <a class="project-url" href="https://pizzakalkylator.se" target="_blank"
                                         rel="noopener" id="proj-pizza-link">pizzakalkylator.se</a>
                                 </div>
-                                <p class="project-stack">JavaScript · UX · Beräkningslogik</p>
-                                <p class="project-body">Nischat verktyg med tydlig produktidé, dynamiska beräkningar och
-                                    en enkel användarupplevelse för snabba, korrekta resultat.</p>
+                                <p class="project-stack">JavaScript · UX · Calculation Logic</p>
+                                <p class="project-body">Niche tool with a clear product idea, dynamic calculations, and
+                                    a simple user experience for quick, accurate results.</p>
                             </li>
 
                         </ul>
@@ -208,9 +210,9 @@
                 </div><!-- /main-left -->
 
                 <!-- ── Sidebar (right column) ─────────────────────────── -->
-                <aside class="sidebar" aria-label="Kompetenser och utbildning">
+                <aside class="sidebar" aria-label="Skills and education">
 
-                    <!-- TEKNIK -->
+                    <!-- STACK -->
                     <div class="sidebar-block">
                         <h2 class="section-heading">Stack</h2>
 
@@ -223,70 +225,70 @@
                             <p class="skill-items">Node.js, Express, REST API</p>
                         </div>
                         <div class="skill-group">
-                            <p class="skill-cat">Databas</p>
+                            <p class="skill-cat">Database</p>
                             <p class="skill-items">PostgreSQL, MongoDB</p>
                         </div>
                         <div class="skill-group">
-                            <p class="skill-cat">Verktyg</p>
+                            <p class="skill-cat">Tools</p>
                             <p class="skill-items">Git, GitHub, Vite, PM2</p>
                         </div>
                         <div class="skill-group">
-                            <p class="skill-cat">Övrigt</p>
+                            <p class="skill-cat">Other</p>
                             <p class="skill-items">Home Assistant, automation</p>
                         </div>
                     </div>
 
-                    <!-- UTBILDNING -->
+                    <!-- EDUCATION -->
                     <div class="sidebar-block">
-                        <h2 class="section-heading">Utbildning</h2>
+                        <h2 class="section-heading">Education</h2>
 
                         <p class="edu-title">Fullstack Developer</p>
-                        <p class="edu-sub">Medieinstitutet · 2024-2026 (pågående)</p>
-                        <p class="edu-desc">JavaScript, HTML/CSS, Databasteknik, API-integrationer, DevOps/testning,
-                            Frontendramverk, Systemutvckling, Integration med 3-partssystem, Utveckling mot
-                            E-handelsplattformar samt
-                            LIA-perioder.</p>
+                        <p class="edu-sub">Medieinstitutet · 2024-2026 (ongoing)</p>
+                        <p class="edu-desc">JavaScript, HTML/CSS, Database Technology, API Integrations,
+                            DevOps/Testing, Frontend Frameworks, Systems Development, Third-party System Integration,
+                            E-commerce Platform Development, and two internship periods (LIA).</p>
                     </div>
 
-                    <!-- STYRKOR -->
+                    <!-- STRENGTHS -->
                     <div class="sidebar-block">
-                        <h2 class="section-heading">Styrkor</h2>
+                        <h2 class="section-heading">Strengths</h2>
 
                         <ul class="strength-list">
-                            <li class="strength-item">Stark känsla för UX och detaljer</li>
-                            <li class="strength-item">Tar idé till fungerande produkt</li>
-                            <li class="strength-item">Bygger robusta lösningar med tydlig struktur</li>
-                            <li class="strength-item">Nyfiken, självgående och samarbetsvillig</li>
+                            <li class="strength-item">Strong sense of UX and attention to detail</li>
+                            <li class="strength-item">Takes ideas to working products</li>
+                            <li class="strength-item">Builds robust solutions with clear structure</li>
+                            <li class="strength-item">Curious, self-driven, and collaborative</li>
                         </ul>
                     </div>
-                    <!-- Arbetslivserfarenhet -->
+
+                    <!-- WORK EXPERIENCE -->
                     <div class="sidebar-block">
-                        <h2 class="section-heading">Arbetslivserfarenhet</h2>
+                        <h2 class="section-heading">Work Experience</h2>
 
                         <div class="exp-entry">
-                            <p class="edu-title">Inköpare</p>
-                            <p class="edu-sub">KLS Ugglarps AB · 2025 - Pågående · Hybrid</p>
-                            <p class="edu-desc">Ansvarar för dataanalys och uppföljning inom inköp med fokus på
-                                leverantörsstruktur och spend. Konsoliderar och kvalitetssäkrar data från flera system
-                                (SAP, Jaggaer) för att ta fram beslutsunderlag.<br><br>
-                                Utvecklar analyser i Excel (Power Query, pivottabeller) för att identifiera mönster,
-                                kategorisera leverantörer och följa upp KPI:er kopplade till kostnad, avtal och
-                                efterlevnad.
-                                Bidrar till strukturering av masterdata och ökad transparens i leverantörsbasen, vilket
-                                möjliggör mer datadrivet inköpsarbete.
+                            <p class="edu-title">Buyer</p>
+                            <p class="edu-sub">KLS Ugglarps AB · 2025 - Present · Hybrid</p>
+                            <p class="edu-desc">Responsible for data analysis and procurement follow-up, with a focus on
+                                supplier structure and spend.
+                                Consolidates and validates data from multiple systems (SAP, Jaggaer) to support
+                                decision-making.<br><br>
+                                Develops analyses in Excel (Power Query, pivot tables) to identify patterns, categorise
+                                suppliers, and track KPIs related to cost, contracts, and compliance.
+                                Contributes to master data structuring and increased transparency in the supplier base,
+                                enabling a more data-driven procurement process.
                             </p>
                         </div>
 
                         <div class="exp-entry">
-                            <p class="edu-title">Produktutvecklare</p>
-                            <p class="edu-sub">KLS Ugglarps AB · 2019 - 2025</p>
-                            <p class="edu-desc">Ansvarade för utveckling av nya och befintliga produkter inom
-                                livsmedelsbranschen, från idé till lansering, i en av Sveriges största
-                                livsmedelskoncerner.
-                                Drev och koordinerade projekt inom produktutveckling, sensorik och masterdata i en
-                                organisation med hög komplexitet och stora produktionsvolymer.<br><br>
-                                Var projektledare och testansvarig för affärsutvecklingens räkning vid utvecklingen och
-                                implementationen av nytt projektverktyg i nära samarbete med IT.</p>
+                            <p class="edu-title">Product Developer</p>
+                            <p class="edu-sub">KLS Ugglarps AB · 2019-2025</p>
+                            <p class="edu-desc">Responsible for developing new and existing products in the food
+                                industry, from idea to launch, at one of Sweden's largest food corporations.
+                                Led and coordinated projects in product development, sensory evaluation, and master data
+                                management within a highly complex organisation with large production volumes.<br><br>
+                                Served as project manager and test lead on behalf of business development during the
+                                development and implementation of a new project management tool, in close collaboration
+                                with IT.</p>
                         </div>
                     </div>
 
@@ -303,24 +305,24 @@
         <div class="container">
             <div class="footer-inner">
                 <p class="footer-name">Sebastian Valdemarsson</p>
-                <nav class="footer-links" aria-label="Footer-kontaktlänkar">
-                    <a href="tel:+46730426260"><i class="fa-solid fa-phone"></i> Telefon</a>
-                    <a href="mailto:valdemarsson.sebastian@gmail.com"><i class="fa-solid fa-paper-plane"></i> E-post</a>
+                <nav class="footer-links" aria-label="Footer contact links">
+                    <a href="tel:+46730426260"><i class="fa-solid fa-phone"></i> Phone</a>
+                    <a href="mailto:valdemarsson.sebastian@gmail.com"><i class="fa-solid fa-paper-plane"></i> Email</a>
                     <a href="https://github.com/csschef" target="_blank" rel="noopener"><i
                             class="fa-brands fa-github"></i> GitHub</a>
                     <a href="https://www.linkedin.com/in/sebastianvaldemarsson" target="_blank" rel="noopener"><i
                             class="fa-brands fa-linkedin"></i> LinkedIn</a>
                 </nav>
                 <p class="footer-copy">
-                    Fler projekt och commit-aktivitet på
+                    More projects and commit activity at
                     <a href="https://github.com/csschef" target="_blank" rel="noopener"
                         style="color:var(--accent)">github.com/csschef</a>
                 </p>
             </div>
         </div>
     </footer>
-    <script src="js/ticker.js"></script>
-    <script src="js/theme.js"></script>
+    <script src="../js/ticker.js"></script>
+    <script src="../js/theme.js"></script>
 </body>
 
 </html>

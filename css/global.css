@@ -281,31 +281,85 @@ ul {
 }
 
 /* ============================================================
-   THEME TOGGLE BUTTON
+   TOP CONTROLS  (language switcher + theme toggle)
    ============================================================ */
-#theme-toggle {
+.top-controls {
     position: fixed;
     top: 16px;
     right: 20px;
     z-index: 1000;
     display: flex;
     align-items: center;
-    gap: 7px;
+    gap: 8px;
+}
+
+/* Language switcher pill */
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 0;
     background: var(--bg-card);
     border: 1px solid var(--rule);
     border-radius: 999px;
-    padding: 6px 14px 6px 10px;
-    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.lang-switch:hover {
+    border-color: var(--accent-border);
+    box-shadow: 0 4px 16px rgba(64, 118, 236, 0.18);
+}
+
+.lang-switch a {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 13px;
     font-family: var(--font);
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
+    color: var(--text-sub);
+    text-decoration: none;
+    transition: color var(--transition), background var(--transition);
+    user-select: none;
+}
+
+.lang-switch a:hover {
+    color: var(--text-muted);
+}
+
+.lang-switch a.lang-active {
+    color: var(--accent-dk);
+    background: var(--accent-soft);
+}
+
+.lang-switch .lang-divider {
+    width: 1px;
+    height: 14px;
+    background: var(--rule);
+    flex-shrink: 0;
+}
+
+/* Theme toggle button — compact icon-only */
+#theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
     color: var(--text-muted);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
     transition: background var(--transition), border-color var(--transition),
         color var(--transition), box-shadow var(--transition), transform var(--transition);
     -webkit-tap-highlight-color: transparent;
     user-select: none;
+    flex-shrink: 0;
 }
 
 #theme-toggle:hover {
@@ -319,60 +373,23 @@ ul {
     transform: translateY(0);
 }
 
-/* The pill track */
-.toggle-track {
-    position: relative;
-    width: 30px;
-    height: 17px;
-    background: var(--rule-strong);
-    border-radius: 999px;
-    transition: background 220ms ease;
-    flex-shrink: 0;
-}
-
-[data-theme="dark"] .toggle-track {
-    background: var(--accent);
-}
-
-/* The sliding circle */
-.toggle-thumb {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 13px;
-    height: 13px;
-    background: #ffffff;
-    border-radius: 50%;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.20);
-    transition: transform 220ms ease;
-}
-
-[data-theme="dark"] .toggle-thumb {
-    transform: translateX(13px);
-}
-
-/* Sun / moon icons */
-.toggle-icon-sun,
-.toggle-icon-moon {
-    font-size: 12px;
-    line-height: 1;
-    transition: opacity var(--transition);
-}
-
+/* Icon visibility: show moon in light mode, sun in dark mode */
 .toggle-icon-sun {
+    display: none;
     color: #f59e0b;
 }
 
 .toggle-icon-moon {
+    display: flex;
     color: var(--accent-dk);
 }
 
 [data-theme="dark"] .toggle-icon-sun {
-    opacity: 0.35;
+    display: flex;
 }
 
-[data-theme="light"] .toggle-icon-moon {
-    opacity: 0.35;
+[data-theme="dark"] .toggle-icon-moon {
+    display: none;
 }
 
 /* ============================================================
