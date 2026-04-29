@@ -1,3 +1,41 @@
+// English index: Ta bort klickfunktionen på desktop för telefonknappar
+function updatePhoneButtonEn() {
+    const phoneBtn = document.getElementById('contact-phone');
+    if (!phoneBtn) return;
+    if (window.innerWidth >= 1024) {
+        phoneBtn.removeAttribute('href');
+    } else {
+        phoneBtn.setAttribute('href', 'tel:+46730426260');
+    }
+}
+function updateFooterPhoneButtonEn() {
+    const phoneBtn = document.getElementById('footer-phone');
+    if (!phoneBtn) return;
+    if (window.innerWidth >= 1024) {
+        phoneBtn.removeAttribute('href');
+    } else {
+        phoneBtn.setAttribute('href', 'tel:+46730426260');
+    }
+}
+if (window.location.pathname.includes('/en/')) {
+    window.addEventListener('resize', updatePhoneButtonEn);
+    window.addEventListener('DOMContentLoaded', updatePhoneButtonEn);
+    window.addEventListener('resize', updateFooterPhoneButtonEn);
+    window.addEventListener('DOMContentLoaded', updateFooterPhoneButtonEn);
+}
+// Ta bort klickfunktionen på desktop för telefonknappen i footern
+function updateFooterPhoneButton() {
+    const phoneBtn = document.getElementById('footer-phone');
+    if (!phoneBtn) return;
+    if (window.innerWidth >= 1024) {
+        phoneBtn.removeAttribute('href');
+    } else {
+        phoneBtn.setAttribute('href', 'tel:+46730426260');
+    }
+}
+
+window.addEventListener('resize', updateFooterPhoneButton);
+window.addEventListener('DOMContentLoaded', updateFooterPhoneButton);
 // Ta bort klickfunktionen på desktop för telefonknappen
 function updatePhoneButton() {
     const phoneBtn = document.getElementById('contact-phone');
