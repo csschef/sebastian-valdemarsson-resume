@@ -1,3 +1,16 @@
+// Ta bort klickfunktionen på desktop för telefonknappen
+function updatePhoneButton() {
+    const phoneBtn = document.getElementById('contact-phone');
+    if (!phoneBtn) return;
+    if (window.innerWidth >= 1024) {
+        phoneBtn.removeAttribute('href');
+    } else {
+        phoneBtn.setAttribute('href', 'tel:+46730426260');
+    }
+}
+
+window.addEventListener('resize', updatePhoneButton);
+window.addEventListener('DOMContentLoaded', updatePhoneButton);
 /**
  * theme.js – Dark / Light mode toggle
  * Saves preference to localStorage under the key 'theme'.

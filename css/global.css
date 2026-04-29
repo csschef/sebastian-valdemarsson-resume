@@ -281,6 +281,29 @@ ul {
     padding: 5px 14px;
     box-shadow: 0 1px 4px rgba(25, 34, 54, 0.07);
     transition: color var(--transition), box-shadow var(--transition), border-color var(--transition), transform var(--transition);
+    cursor: pointer;
+}
+
+/* Telefonknapp: visa endast nummer på desktop, endast "Telefon" på mobil */
+.phone-number {
+    display: none;
+}
+@media (min-width: 1024px) {
+    #contact-phone .phone-label {
+        display: none;
+    }
+    #contact-phone .phone-number {
+        display: inline;
+    }
+    #contact-phone {
+        pointer-events: none;
+        color: var(--text-muted);
+        text-decoration: none;
+        cursor: default;
+    }
+    #contact-phone i {
+        pointer-events: auto;
+    }
 }
 
 .hero-contact a:hover {
